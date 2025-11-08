@@ -6,51 +6,52 @@
 <title>Aymard Kigabiro - Cybersecurity Journey</title>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* General Styles */
-  * {margin:0; padding:0; box-sizing:border-box;}
-  body {font-family:'Jost', sans-serif; line-height:1.6; color:#000; background:#fff; transition: background 0.5s, color 0.5s;}
-  h1, h2, h3 {margin-bottom:1rem;}
-  section {padding:100px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; transform: translateY(50px); transition: all 1s ease;}
-  p, li {text-align: justify;}
-  ul {list-style:none; padding-left:0;}
-  
-  /* Intro Scene */
-  #intro {position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; text-align:center; background:#000; color:#00ffea; overflow:hidden;}
-  #intro h1 {font-size:2.5rem; margin-bottom:0.5rem; animation: fadeInUp 2s forwards;}
-  #intro h2 {font-size:3.5rem; margin-bottom:1rem; animation: fadeInUp 3s forwards;}
-  #intro p {font-size:1.2rem; animation: fadeInUp 4s forwards;}
-  
-  /* Dark Mode Button */
-  #darkModeToggle {
+/* General Styles */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Jost', sans-serif; line-height:1.6; color:#000; background:#fff; transition: background 0.5s, color 0.5s;}
+h1, h2, h3 {margin-bottom:1rem;}
+section {padding:100px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; opacity:0; transform: translateY(50px); transition: all 1s ease;}
+p, li {text-align: justify;}
+ul {list-style:none; padding-left:0;}
+
+/* Dark Mode Button */
+#darkModeToggle {
     position: fixed; top: 20px; right: 20px; z-index: 1000;
     background:#000; color:#fff; border:none; padding:10px 15px; cursor:pointer;
     border-radius:5px; font-weight:600;
-  }
-  
-  /* Sections fade in on scroll */
-  .visible {opacity:1; transform:translateY(0);}
-  
-  /* Section Styling */
-  section {max-width:900px; margin:0 auto;}
-  section h2 {font-size:2rem; margin-bottom:1rem; color:#000;}
-  section li {margin-bottom:0.5rem; position:relative;}
-  section li::before {content:"•"; color:#00ffea; position:absolute; left:-20px; top:0;}
-  
-  /* Scroll Animation */
-  @keyframes fadeInUp {from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);}}
-  
-  /* Dark Mode */
-  body.dark {background:#121212; color:#fff;}
-  body.dark section li::before {color:#0ff;}
-  body.dark #darkModeToggle {background:#fff; color:#000;}
-  
-  /* Responsive */
-  @media(max-width:768px){
+}
+
+/* Intro Section */
+#intro {position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; text-align:center; overflow:hidden;}
+#intro canvas {position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;}
+#intro h1, #intro h2, #intro p {position:relative; z-index:1; color:#00ffea;}
+#intro h1 {font-size:2.5rem; margin-bottom:0.5rem;}
+#intro h2 {font-size:3.5rem; margin-bottom:1rem; min-height:4rem;}
+#intro p {font-size:1.2rem;}
+
+/* Section Styling */
+section {max-width:900px; margin:0 auto;}
+section h2 {font-size:2rem; margin-bottom:1rem; color:#000; position:relative;}
+section h2:hover {color:#00ffea;}
+section li {margin-bottom:0.5rem; position:relative;}
+section li::before {content:"•"; color:#00ffea; position:absolute; left:-20px; top:0;}
+
+/* Scroll Animation */
+.visible {opacity:1; transform:translateY(0);}
+@keyframes fadeInUp {from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);}}
+
+/* Dark Mode */
+body.dark {background:#121212; color:#fff;}
+body.dark section li::before {color:#0ff;}
+body.dark #darkModeToggle {background:#fff; color:#000;}
+
+/* Responsive */
+@media(max-width:768px){
     #intro h1 {font-size:2rem;}
     #intro h2 {font-size:2.5rem;}
     #intro p {font-size:1rem;}
     #darkModeToggle {top:10px; right:10px; padding:8px 12px; font-size:0.9rem;}
-  }
+}
 </style>
 </head>
 <body>
@@ -60,8 +61,9 @@
 
 <!-- Intro Section -->
 <section id="intro">
+  <canvas id="particles"></canvas>
   <h1>Welcome to</h1>
-  <h2>Aymard Kigabiro's Journey</h2>
+  <h2 id="typed"></h2>
   <p>Cybersecurity | IT Innovator | Tech Community Builder</p>
 </section>
 
@@ -123,24 +125,72 @@
 </section>
 
 <script>
-  // Scroll animations
-  const sections = document.querySelectorAll('section');
-  window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY + window.innerHeight * 0.8;
-    sections.forEach(sec => {
-      if(sec.offsetTop < scrollPos){
-        sec.classList.add('visible');
-      }
+// Scroll animations
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY + window.innerHeight * 0.8;
+  sections.forEach(sec => {
+    if(sec.offsetTop < scrollPos){
+      sec.classList.add('visible');
+    }
+  });
+});
+
+// Dark mode toggle
+const toggle = document.getElementById('darkModeToggle');
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  toggle.innerText = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+});
+
+// Typing effect
+const typed = document.getElementById('typed');
+const text = "Aymard Kigabiro's Journey";
+let index = 0;
+function type() {
+  if(index < text.length){
+    typed.innerHTML += text.charAt(index);
+    index++;
+    setTimeout(type, 120);
+  }
+}
+type();
+
+// Particles effect
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let w, h, particlesArray;
+function initCanvas(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+  particlesArray = [];
+  for(let i=0;i<100;i++){
+    particlesArray.push({
+      x: Math.random()*w,
+      y: Math.random()*h,
+      r: Math.random()*2+1,
+      dx: (Math.random()-0.5)*0.5,
+      dy: (Math.random()-0.5)*0.5
     });
+  }
+}
+function animateParticles(){
+  ctx.clearRect(0,0,w,h);
+  particlesArray.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(0,255,234,0.7)';
+    ctx.fill();
+    p.x += p.dx;
+    p.y += p.dy;
+    if(p.x<0||p.x>w)p.dx*=-1;
+    if(p.y<0||p.y>h)p.dy*=-1;
   });
-
-  // Dark mode toggle
-  const toggle = document.getElementById('darkModeToggle');
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    toggle.innerText = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
-  });
+  requestAnimationFrame(animateParticles);
+}
+window.addEventListener('resize', initCanvas);
+initCanvas();
+animateParticles();
 </script>
-
 </body>
 </html>
