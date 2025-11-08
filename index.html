@@ -11,20 +11,17 @@
     font-family: 'Jost', sans-serif;
     margin: 0;
     padding: 0;
-    background: #fff;
-    color: #000;
     line-height: 1.6;
+    transition: background 0.5s, color 0.5s;
   }
   a {
     text-decoration: none;
-    color: #000;
+    color: inherit;
     transition: all 0.3s ease;
   }
   a:hover {
     text-decoration: underline;
   }
-
-  /* Container */
   .container {
     max-width: 900px;
     margin: 0 auto;
@@ -46,28 +43,40 @@
     font-size: 1rem;
   }
 
-  /* Section */
-  section {
-    margin-bottom: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards;
+  /* Dark/Light Mode Toggle */
+  .toggle-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    background: none;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    z-index: 100;
   }
-  section:nth-of-type(1) { animation-delay: 0.2s; }
-  section:nth-of-type(2) { animation-delay: 0.4s; }
-  section:nth-of-type(3) { animation-delay: 0.6s; }
-  section:nth-of-type(4) { animation-delay: 0.8s; }
-  section:nth-of-type(5) { animation-delay: 1s; }
 
+  /* Sections */
+  section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    text-align: justify;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     font-weight: 600;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid currentColor;
     display: inline-block;
     padding-bottom: 0.2rem;
   }
-
   ul {
     padding-left: 1.2rem;
   }
@@ -75,12 +84,14 @@
     margin-bottom: 0.5rem;
   }
 
-  /* Keyframes */
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Light/Dark Mode Styles */
+  body.light-mode {
+    background: #fff;
+    color: #000;
+  }
+  body.dark-mode {
+    background: #111;
+    color: #fff;
   }
 
   /* Responsive */
@@ -91,7 +102,9 @@
   }
 </style>
 </head>
-<body>
+<body class="light-mode">
+<button class="toggle-btn" onclick="toggleMode()">Dark Mode</button>
+
 <div class="container">
   <!-- Header -->
   <header>
@@ -156,5 +169,33 @@
     <p><strong>Professional Associations:</strong> Google Developers Group, Bujumbura (Organizer); Community for Youth Empowerment and Digital Innovation (Co-founder); Per Scholas Alumni</p>
   </section>
 </div>
+
+<script>
+  // Dark/Light Mode Toggle
+  function toggleMode() {
+    const body = document.body;
+    if(body.classList.contains('light-mode')){
+      body.classList.remove('light-mode');
+      body.classList.add('dark-mode');
+      document.querySelector('.toggle-btn').innerText = 'Light Mode';
+    } else {
+      body.classList.remove('dark-mode');
+      body.classList.add('light-mode');
+      document.querySelector('.toggle-btn').innerText = 'Dark Mode';
+    }
+  }
+
+  // Scroll Reveal
+  const sections = document.querySelectorAll('section');
+  window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if(sectionTop < triggerBottom){
+        section.classList.add('visible');
+      }
+    });
+  });
+</script>
 </body>
 </html>
