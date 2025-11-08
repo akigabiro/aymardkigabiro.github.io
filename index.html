@@ -1,218 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aymard Kigabiro | Resume</title>
-  
-  <!-- Jost Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aymard Kigabiro | Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
     body {
-      font-family: 'Jost', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f9f9f9;
+        font-family: 'Jost', sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
     }
-
     .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      border-radius: 10px;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
     h1, h2, h3 {
-      margin: 0;
-      font-weight: 600;
+        margin: 0 0 10px;
     }
-
     h1 {
-      font-size: 2rem;
-      color: #1a1a1a;
+        font-size: 2rem;
     }
-
     h2 {
-      font-size: 1.3rem;
-      margin-top: 20px;
-      border-bottom: 2px solid #e2e2e2;
-      padding-bottom: 5px;
-      color: #1a1a1a;
+        font-size: 1.5rem;
+        color: #0073e6;
+        margin-top: 20px;
+        border-bottom: 2px solid #0073e6;
+        padding-bottom: 5px;
     }
-
     h3 {
-      font-size: 1.1rem;
-      margin-bottom: 5px;
-      color: #555;
+        font-size: 1.2rem;
+        margin-top: 15px;
     }
-
     p, li {
-      font-size: 0.95rem;
+        text-align: justify;
     }
-
-    .contact {
-      margin-top: 5px;
-      margin-bottom: 25px;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    .section {
-      margin-bottom: 25px;
-    }
-
     ul {
-      margin: 0;
-      padding-left: 20px;
+        padding-left: 20px;
     }
-
-    li {
-      margin-bottom: 8px;
+    .contact {
+        font-weight: 500;
+        margin-bottom: 20px;
     }
-
-    .job-title {
-      font-weight: 500;
-      font-size: 1rem;
+    .section {
+        margin-bottom: 25px;
     }
-
-    .company-duration {
-      font-size: 0.9rem;
-      color: #777;
-      margin-bottom: 5px;
+    .job {
+        margin-bottom: 15px;
     }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
+    @media (max-width: 600px) {
+        .container {
+            padding: 15px;
+        }
+        h1 {
+            font-size: 1.6rem;
+        }
+        h2 {
+            font-size: 1.3rem;
+        }
     }
-
-    .skills-grid ul {
-      padding-left: 15px;
-    }
-
-    .certifications ul, .associations ul {
-      list-style: disc;
-    }
-  </style>
+</style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <h1>Aymard Kigabiro</h1>
-    <div class="contact">
-      aymardkigabiro@gmail.com | Phoenix, Arizona | <a href="https://www.linkedin.com/in/aymardkigabiro" target="_blank">LinkedIn</a>
+    <p class="contact">aymardkigabiro@gmail.com | Phoenix, Arizona | <a href="https://www.linkedin.com/in/aymardkigabiro" target="_blank">LinkedIn</a></p>
+
+    <div class="section">
+        <h2>Professional Summary</h2>
+        <p>Results-driven IT professional with experience in technical support, IT operations, and digital product management. Passionate about leveraging technology to solve complex problems and drive innovation, I am actively building expertise in cybersecurity, cloud computing, and emerging IT solutions. By fostering tech communities, supporting incubation, and enabling collaboration, I have delivered measurable impact and empowered others. Eager to grow in cybersecurity, I aim to contribute value to forward-thinking organizations.</p>
     </div>
 
     <div class="section">
-      <h2>Professional Summary</h2>
-      <p>
-        Results-driven IT professional with experience in technical support, IT operations, and digital product management. Passionate about leveraging technology to solve complex problems and drive innovation, I am actively building expertise in cybersecurity, cloud computing, and emerging IT solutions. By fostering tech communities, supporting incubation, and enabling collaboration, I have delivered measurable impact and empowered others. Eager to grow in cybersecurity, I aim to contribute value to forward-thinking organizations.
-      </p>
+        <h2>Professional Experience</h2>
+        
+        <div class="job">
+            <h3>SanTrac Technologies, Phoenix | Arizona (03/2025 – Now)</h3>
+            <strong>Help Desk Technician | IT Support</strong>
+            <ul>
+                <li>Actively listen to users and translate issues into tickets, improving resolution time and customer satisfaction.</li>
+                <li>Document issues, incidents, and errors, creating SOPs with IT Glue to accelerate team response and ensure audit readiness.</li>
+                <li>Monitor security events via Perch SIEM and collaborate with SOC/NOC teams for proactive threat detection.</li>
+                <li>Analyze suspicious emails using Proofpoint, reducing false positives and strengthening phishing prevention.</li>
+                <li>Secure privileged accounts via CyberQP password rotations and M365 Admin Center, provisioning email and enforcing 2FA.</li>
+                <li>Verify patch compliance and deploy Unified Endpoint Security, managing backups and BCDR for business continuity.</li>
+                <li>Provide user training for cloud migration and security best practices, driving secure adoption across the organization.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>Aclis, Burundi (02/2020 – 06/2024)</h3>
+            <strong>Project Assistant | Co-founder</strong>
+            <ul>
+                <li>Delivered 20+ digital solutions, optimizing client operations and increasing efficiency by 30%.</li>
+                <li>Trained 200+ youth, including girls, on tech skills and entrepreneurship, enabling market readiness.</li>
+                <li>Built a developer community of 150+, exposing members to emerging technologies and mentorship.</li>
+                <li>Launched incubator initiatives helping startups adopt innovative solutions, achieving 90% client satisfaction.</li>
+                <li>Bridged technical and business needs, enabling organizations to leverage technology effectively.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>Sogetrac, Burundi (10/2017 – 01/2020)</h3>
+            <strong>IT Support Assistant</strong>
+            <ul>
+                <li>Resolved 95% of user issues on first contact, minimizing downtime across Windows, macOS, and mobile platforms.</li>
+                <li>Delivered calm, step-by-step support, boosting customer satisfaction by 20%.</li>
+                <li>Monitored network and system performance, maintaining 99% uptime for critical business operations.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>Freelance Web Designer & Digital Consultant, Burundi (09/2017 – 02/2020)</h3>
+            <strong>Self Employed | Remote</strong>
+            <ul>
+                <li>Delivered dynamic websites and CMS solutions, boosting client traffic by up to 40% and client satisfaction by 95%.</li>
+            </ul>
+        </div>
     </div>
 
     <div class="section">
-      <h2>Professional Experience</h2>
-
-      <div class="job">
-        <div class="job-title">Help Desk Technician | IT Support</div>
-        <div class="company-duration">SanTrac Technologies, Phoenix | Arizona | 03/2025 – Now</div>
+        <h2>Skills & Tools</h2>
         <ul>
-          <li>Actively listen to users and translate issues into tickets, improving resolution time and customer satisfaction.</li>
-          <li>Document issues, incidents, and errors, creating SOPs with IT Glue to accelerate team response and ensure audit readiness.</li>
-          <li>Monitor security events via Perch SIEM and collaborate with SOC/NOC teams to ensure proactive threat detection and escalation.</li>
-          <li>Analyzed and triaged suspicious emails using Proofpoint, reducing false positives and strengthening phishing prevention; administered SaaS backup systems to maintain secure data availability.</li>
-          <li>Secure privileged accounts via CyberQP password rotations and M365 Admin Center, provisioning email, enforcing 2FA, and supporting Azure transitions.</li>
-          <li>Verify patch compliance using RMM tools and deploy Unified Endpoint Security, ensuring endpoint and server protection while managing backups and BCDR for business continuity.</li>
-          <li>Provide user training and guides for cloud migration and security best practices, driving broad adoption of secure practices across the organization.</li>
+            <li><strong>Cybersecurity:</strong> SOC Monitoring, Security Event Monitoring, Incident Response Support, Threat Analysis & Escalation, Perch SIEM, Proofpoint, ThreatLocker, CyberQP, Microsoft 365 Security, Patch Management</li>
+            <li><strong>Cloud / Backup / Endpoint:</strong> Azure, Kaseya Backup & BCDR, Unified Endpoint Security, SaaS Backups</li>
+            <li><strong>IT Operations / Troubleshooting:</strong> ConnectWise RMM Tools, Windows</li>
+            <li><strong>Business & Community:</strong> CRM/Web Solutions, Project Management, Training & Mentorship</li>
+            <li><strong>Soft Skills:</strong> Active listening, critical thinking, collaboration, adaptability, leadership, customer-focused mindset</li>
         </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-title">Project Assistant | Co-founder</div>
-        <div class="company-duration">Aclis, Burundi | 02/2020 – 06/2024</div>
-        <ul>
-          <li>Delivered 20+ digital solutions (websites, CRM systems, and operational tools), optimizing client operations and increasing efficiency by 30%.</li>
-          <li>Trained 200+ youth, including girls, with 21st-century tech skills and entrepreneurial knowledge, enabling them to enter the job market and overcome gender barriers.</li>
-          <li>Built and nurtured a developer community of 150+, exposing members to emerging technologies and mentorship, strengthening local tech talent pipelines.</li>
-          <li>Launched incubator initiatives, helping startups and youth projects adopt innovative solutions and achieve market readiness, resulting in 90% client satisfaction.</li>
-          <li>Bridged technical and business needs, enabling organizations to leverage technology effectively and stay competitive in evolving markets.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-title">IT Support Assistant</div>
-        <div class="company-duration">Sogetrac, Burundi | 10/2017 – 01/2020</div>
-        <ul>
-          <li>Resolved 95% of user issues on first contact, ensuring smooth daily operations and minimizing downtime across Windows, macOS, and mobile platforms.</li>
-          <li>Delivered calm, step-by-step support and proactive follow-ups, boosting customer satisfaction by 20% and enabling long-term business productivity.</li>
-          <li>Monitored network and system performance, coordinated with technical teams, and addressed hardware/software issues, maintaining 99% uptime and keeping critical business operations running without interruption.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="job-title">Freelance Web Designer & Digital Consultant | Self Employed</div>
-        <div class="company-duration">Burundi | 09/2017 – 02/2020</div>
-        <ul>
-          <li>Delivered dynamic websites and CMS solutions, boosting client traffic by up to 40% and client satisfaction by 95%.</li>
-        </ul>
-      </div>
     </div>
 
     <div class="section">
-      <h2>Skills & Tools</h2>
-      <div class="skills-grid">
-        <ul>
-          <li><strong>Cybersecurity:</strong> SOC Monitoring, Security Event Monitoring, Incident Response Support, Threat Analysis & Escalation, Perch SIEM, Proofpoint, ThreatLocker, CyberQP, Microsoft 365 Security, Patch Management</li>
-        </ul>
-        <ul>
-          <li><strong>Cloud / Backup / Endpoint:</strong> Azure, Kaseya Backup & BCDR, Unified Endpoint Security, SaaS Backups</li>
-        </ul>
-        <ul>
-          <li><strong>IT Operations / Troubleshooting:</strong> ConnectWise RMM Tools, Windows</li>
-        </ul>
-        <ul>
-          <li><strong>Business & Community:</strong> CRM/Web Solutions, Project Management, Training & Mentorship</li>
-        </ul>
-        <ul>
-          <li><strong>Soft Skills:</strong> Active listening, critical thinking, collaboration, adaptability, leadership, customer-focused mindset</li>
-        </ul>
-      </div>
+        <h2>Education</h2>
+        <p>Bachelor of Information Technology, Maharishi Markandeshwar University, Haryana – India (2013 – 2017)</p>
+        <p>IT Support Training, Per Scholas, Remote – USA (11/2024 – 03/2025)</p>
     </div>
 
     <div class="section">
-      <h2>Education</h2>
-      <ul>
-        <li>Bachelor of Information Technology, Maharishi Markandeshwar University, Haryana – India | 2013 – 2017</li>
-        <li>IT Support Training, Per Scholas, Remote – USA | 11/2024 – 03/2025</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Certifications & Professional Associations</h2>
-
-      <div class="certifications">
-        <h3>Certifications</h3>
+        <h2>Certifications & Professional Associations</h2>
         <ul>
-          <li>CompTIA A+ certified | 05/2025</li>
-          <li>Google IT Support | Coursera, Per Scholas</li>
-          <li>Cybersecurity Hands On Problem Solving, Arizona State University (ASU) | In Progress</li>
+            <li>CompTIA A+ Certified (05/2025)</li>
+            <li>Google IT Support | Coursera, PerScholas</li>
+            <li>Cybersecurity Hands On Problem Solving, Arizona State University (In Progress)</li>
         </ul>
-      </div>
-
-      <div class="associations">
-        <h3>Professional Associations</h3>
         <ul>
-          <li>Google Developers Group, Bujumbura | Organizer</li>
-          <li>Community for Youth Empowerment and Digital Innovation (COYEDI) | Co-founder | Non-profit</li>
-          <li>Per Scholas Alumni</li>
+            <li>Google Developers Group, Bujumbura – Organizer</li>
+            <li>Community for Youth Empowerment and Digital Innovation (COYEDI) – Co-founder | Non-profit</li>
+            <li>Per Scholas Alumni</li>
         </ul>
-      </div>
     </div>
-  </div>
+</div>
 </body>
 </html>
