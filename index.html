@@ -3,235 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aymard Kigabiro | Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Aymard Kigabiro - Cybersecurity Journey</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    :root {
-        --bg-light: #ffffff;
-        --bg-dark: #121212;
-        --text-light: #000000;
-        --text-dark: #f0f0f0;
-    }
-
-    body {
-        font-family: 'Jost', sans-serif;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-        background-color: var(--bg-light);
-        color: var(--text-light);
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    body.dark-mode {
-        background-color: var(--bg-dark);
-        color: var(--text-dark);
-    }
-
-    .container {
-        max-width: 900px;
-        margin: auto;
-        padding: 2rem;
-    }
-
-    h1, h2, h3 {
-        margin-bottom: 0.5rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-        margin-top: 1rem;
-    }
-
-    p, li {
-        text-align: justify;
-    }
-
-    ul {
-        padding-left: 1.5rem;
-    }
-
-    .section {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s ease;
-        margin-bottom: 2rem;
-    }
-
-    .section.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .dark-mode-toggle {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: 2px solid #000;
-        padding: 0.4rem 0.8rem;
-        cursor: pointer;
-        border-radius: 5px;
-        z-index: 1000;
-        font-weight: 500;
-        transition: all 0.3s;
-    }
-
-    body.dark-mode .dark-mode-toggle {
-        border-color: #f0f0f0;
-        color: #f0f0f0;
-    }
-
-    /* Animated bullets */
-    .animated-li {
-        opacity: 0;
-        transform: translateX(-20px);
-        transition: all 0.5s ease;
-    }
-
-    .animated-li.visible {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-        .dark-mode-toggle {
-            top: auto;
-            bottom: 1rem;
-            right: 1rem;
-        }
-    }
-
+  /* General Styles */
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-family:'Jost', sans-serif; line-height:1.6; color:#000; background:#fff; transition: background 0.5s, color 0.5s;}
+  h1, h2, h3 {margin-bottom:1rem;}
+  section {padding:100px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; transform: translateY(50px); transition: all 1s ease;}
+  p, li {text-align: justify;}
+  ul {list-style:none; padding-left:0;}
+  
+  /* Intro Scene */
+  #intro {position:relative; display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; text-align:center; background:#000; color:#00ffea; overflow:hidden;}
+  #intro h1 {font-size:2.5rem; margin-bottom:0.5rem; animation: fadeInUp 2s forwards;}
+  #intro h2 {font-size:3.5rem; margin-bottom:1rem; animation: fadeInUp 3s forwards;}
+  #intro p {font-size:1.2rem; animation: fadeInUp 4s forwards;}
+  
+  /* Dark Mode Button */
+  #darkModeToggle {
+    position: fixed; top: 20px; right: 20px; z-index: 1000;
+    background:#000; color:#fff; border:none; padding:10px 15px; cursor:pointer;
+    border-radius:5px; font-weight:600;
+  }
+  
+  /* Sections fade in on scroll */
+  .visible {opacity:1; transform:translateY(0);}
+  
+  /* Section Styling */
+  section {max-width:900px; margin:0 auto;}
+  section h2 {font-size:2rem; margin-bottom:1rem; color:#000;}
+  section li {margin-bottom:0.5rem; position:relative;}
+  section li::before {content:"•"; color:#00ffea; position:absolute; left:-20px; top:0;}
+  
+  /* Scroll Animation */
+  @keyframes fadeInUp {from {opacity:0; transform:translateY(50px);} to {opacity:1; transform:translateY(0);}}
+  
+  /* Dark Mode */
+  body.dark {background:#121212; color:#fff;}
+  body.dark section li::before {color:#0ff;}
+  body.dark #darkModeToggle {background:#fff; color:#000;}
+  
+  /* Responsive */
+  @media(max-width:768px){
+    #intro h1 {font-size:2rem;}
+    #intro h2 {font-size:2.5rem;}
+    #intro p {font-size:1rem;}
+    #darkModeToggle {top:10px; right:10px; padding:8px 12px; font-size:0.9rem;}
+  }
 </style>
 </head>
 <body>
 
-<button class="dark-mode-toggle">Dark Mode</button>
+<!-- Dark Mode Toggle -->
+<button id="darkModeToggle">Dark Mode</button>
 
-<div class="container">
+<!-- Intro Section -->
+<section id="intro">
+  <h1>Welcome to</h1>
+  <h2>Aymard Kigabiro's Journey</h2>
+  <p>Cybersecurity | IT Innovator | Tech Community Builder</p>
+</section>
 
-    <h1>Aymard Kigabiro</h1>
-    <p>aymardkigabiro@gmail.com | Phoenix, Arizona | <a href="https://www.linkedin.com/in/aymardkigabiro" target="_blank">LinkedIn</a></p>
+<!-- Professional Summary -->
+<section id="summary">
+  <h2>Professional Summary</h2>
+  <p>Results-driven IT professional with experience in technical support, IT operations, and digital product management. Passionate about leveraging technology to solve complex problems and drive innovation. By fostering tech communities, supporting incubation, and enabling collaboration, I have delivered measurable impact and empowered others. Eager to grow in cybersecurity, I aim to contribute value to forward-thinking organizations.</p>
+</section>
 
-    <div class="section" id="summary">
-        <h2>Professional Summary</h2>
-        <p>Results-driven IT professional with experience in technical support, IT operations, and digital product management. Passionate about leveraging technology to solve complex problems and drive innovation, I am actively building expertise in cybersecurity, cloud computing, and emerging IT solutions. By fostering tech communities, supporting incubation, and enabling collaboration, I have delivered measurable impact and empowered others. Eager to grow in cybersecurity, I aim to contribute value to forward-thinking organizations.</p>
-    </div>
+<!-- Experience -->
+<section id="experience">
+  <h2>Professional Experience</h2>
+  <h3>SanTrac Technologies, Phoenix, AZ | 03/2025 – Now</h3>
+  <ul>
+    <li>Actively listen to users and translate issues into tickets, improving resolution time and customer satisfaction.</li>
+    <li>Document issues, incidents, and errors, creating SOPs with IT Glue to accelerate team response.</li>
+    <li>Monitor security events via Perch SIEM and collaborate with SOC/NOC teams for proactive threat detection.</li>
+    <li>Analyze suspicious emails using Proofpoint and administer SaaS backup systems to maintain secure data.</li>
+  </ul>
+  
+  <h3>Aclis, Burundi | 02/2020 – 06/2024</h3>
+  <ul>
+    <li>Delivered 20+ digital solutions, optimizing client operations and increasing efficiency by 30%.</li>
+    <li>Trained 200+ youth, including girls, with 21st-century tech skills and entrepreneurial knowledge.</li>
+    <li>Built and nurtured a developer community of 150+, strengthening local tech talent pipelines.</li>
+  </ul>
+</section>
 
-    <div class="section" id="experience">
-        <h2>Professional Experience</h2>
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills & Tools</h2>
+  <ul>
+    <li>Cybersecurity: SOC Monitoring, Security Event Monitoring, Threat Analysis & Escalation, Perch SIEM, Proofpoint</li>
+    <li>Cloud / Backup / Endpoint: Azure, Kaseya Backup & BCDR, Unified Endpoint Security, SaaS Backups</li>
+    <li>IT Operations: ConnectWise RMM Tools, Windows</li>
+    <li>Business & Community: CRM/Web Solutions, Project Management, Training & Mentorship</li>
+    <li>Soft Skills: Active listening, critical thinking, collaboration, adaptability, leadership</li>
+  </ul>
+</section>
 
-        <h3>SanTrac Technologies, Phoenix | Arizona | 03/2025 – Now</h3>
-        <h4>Help Desk Technician | IT Support</h4>
-        <ul>
-            <li class="animated-li">Actively listen to users and translate issues into tickets, improving resolution time and customer satisfaction.</li>
-            <li class="animated-li">Document issues, incidents, and errors, creating SOPs with IT Glue to accelerate team response and ensure audit readiness.</li>
-            <li class="animated-li">Monitor security events via Perch SIEM and collaborate with SOC/NOC teams to ensure proactive threat detection and escalation.</li>
-            <li class="animated-li">Analyzed and triaged suspicious emails using Proofpoint, reducing false positives and strengthening phishing prevention; administered SaaS backup systems to maintain secure data availability.</li>
-            <li class="animated-li">Secure privileged accounts via CyberQP password rotations and M365 Admin Center, provisioning email, enforcing 2FA, and supporting Azure transitions.</li>
-            <li class="animated-li">Verify patch compliance using RMM tools and deploy Unified Endpoint Security, ensuring endpoint and server protection while managing backups and BCDR for business continuity.</li>
-            <li class="animated-li">Provide user training and guides for cloud migration and security best practices, driving broad adoption of secure practices across the organization.</li>
-        </ul>
+<!-- Education -->
+<section id="education">
+  <h2>Education</h2>
+  <ul>
+    <li>Bachelor of Information Technology, Maharishi Markandeshwar University, India | 2013 – 2017</li>
+    <li>IT Support Training, Per Scholas, Remote – USA | 11/2024 – 03/2025</li>
+  </ul>
+</section>
 
-        <h3>Aclis, Burundi | 02/2020 – 06/2024</h3>
-        <h4>Project Assistant | Co-founder</h4>
-        <ul>
-            <li class="animated-li">Delivered 20+ digital solutions (websites, CRM systems, and operational tools), optimizing client operations and increasing efficiency by 30%.</li>
-            <li class="animated-li">Trained 200+ youth, including girls, with 21st-century tech skills and entrepreneurial knowledge, enabling them to enter the job market and overcome gender barriers.</li>
-            <li class="animated-li">Built and nurtured a developer community of 150+, exposing members to emerging technologies and mentorship, strengthening local tech talent pipelines.</li>
-            <li class="animated-li">Launched incubator initiatives, helping startups and youth projects adopt innovative solutions and achieve market readiness, resulting in 90% client satisfaction.</li>
-            <li class="animated-li">Bridged technical and business needs, enabling organizations to leverage technology effectively and stay competitive in evolving markets.</li>
-        </ul>
-
-        <h3>Sogetrac, Burundi | 10/2017 – 01/2020</h3>
-        <h4>IT Support Assistant</h4>
-        <ul>
-            <li class="animated-li">Resolved 95% of user issues on first contact, ensuring smooth daily operations and minimizing downtime across Windows, macOS, and mobile platforms.</li>
-            <li class="animated-li">Delivered calm, step-by-step support and proactive follow-ups, boosting customer satisfaction by 20% and enabling long-term business productivity.</li>
-            <li class="animated-li">Monitored network and system performance, coordinated with technical teams, and addressed hardware/software issues, maintaining 99% uptime and keeping critical business operations running without interruption.</li>
-        </ul>
-
-        <h3>Freelance Web Designer & Digital Consultant, Burundi | 09/2017 – 02/2020</h3>
-        <h4>Self Employed | Remote</h4>
-        <ul>
-            <li class="animated-li">Delivered dynamic websites and CMS solutions, boosting client traffic by up to 40% and client satisfaction by 95%.</li>
-        </ul>
-    </div>
-
-    <div class="section" id="skills">
-        <h2>Skills & Tools</h2>
-        <ul>
-            <li class="animated-li"><strong>Cybersecurity:</strong> SOC Monitoring, Security Event Monitoring, Incident Response Support, Threat Analysis & Escalation, Perch SIEM, Proofpoint, ThreatLocker, CyberQP, Microsoft 365 Security, Patch Management</li>
-            <li class="animated-li"><strong>Cloud / Backup / Endpoint:</strong> Azure, Kaseya Backup & BCDR, Unified Endpoint Security, SaaS Backups</li>
-            <li class="animated-li"><strong>IT Operations / Troubleshooting:</strong> ConnectWise RMM Tools, Windows</li>
-            <li class="animated-li"><strong>Business & Community:</strong> CRM/Web Solutions, Project Management, Training & Mentorship</li>
-            <li class="animated-li"><strong>Soft Skills:</strong> Active listening, critical thinking, collaboration, adaptability, leadership, customer-focused mindset</li>
-        </ul>
-    </div>
-
-    <div class="section" id="education">
-        <h2>Education</h2>
-        <ul>
-            <li class="animated-li">Bachelor of Information Technology, Maharishi Markandeshwar University, Haryana – India | 2013 – 2017</li>
-            <li class="animated-li">IT Support Training, Per Scholas, Remote – USA | 11/2024 – 03/2025</li>
-        </ul>
-    </div>
-
-    <div class="section" id="certifications">
-        <h2>Certifications & Associations</h2>
-        <ul>
-            <li class="animated-li">CompTIA A+ Certified | 05/2025</li>
-            <li class="animated-li">Google IT Support | Coursera, PerScholas</li>
-            <li class="animated-li">Cybersecurity Hands On Problem Solving, Arizona State University(ASU) | In Progress</li>
-            <li class="animated-li">Google Developers Group, Bujumbura | Organizer</li>
-            <li class="animated-li">Community for Youth Empowerment and Digital Innovation (COYEDI) | Co-founder | Non-profit</li>
-            <li class="animated-li">Per Scholas Alumni</li>
-        </ul>
-    </div>
-
-</div>
+<!-- Certifications -->
+<section id="certifications">
+  <h2>Certifications & Associations</h2>
+  <ul>
+    <li>CompTIA A+ Certified | 05/2025</li>
+    <li>Google IT Support | Coursera, PerScholas</li>
+    <li>Cybersecurity Hands-On Problem Solving, ASU | In Progress</li>
+    <li>Professional Associations: Google Developers Group, COYEDI, Per Scholas Alumni</li>
+  </ul>
+</section>
 
 <script>
-    // Dark/Light Mode Toggle
-    const toggleButton = document.querySelector('.dark-mode-toggle');
-    toggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+  // Scroll animations
+  const sections = document.querySelectorAll('section');
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + window.innerHeight * 0.8;
+    sections.forEach(sec => {
+      if(sec.offsetTop < scrollPos){
+        sec.classList.add('visible');
+      }
     });
+  });
 
-    // Scroll-triggered animations
-    const sections = document.querySelectorAll('.section');
-    const bullets = document.querySelectorAll('.animated-li');
-
-    const revealSection = () => {
-        const triggerBottom = window.innerHeight / 1.2;
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if(sectionTop < triggerBottom) {
-                section.classList.add('visible');
-            }
-        });
-
-        bullets.forEach((bullet, i) => {
-            const bulletTop = bullet.getBoundingClientRect().top;
-            if(bulletTop < triggerBottom) {
-                setTimeout(() => bullet.classList.add('visible'), i * 150);
-            }
-        });
-    }
-
-    window.addEventListener('scroll', revealSection);
-    window.addEventListener('load', revealSection);
+  // Dark mode toggle
+  const toggle = document.getElementById('darkModeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggle.innerText = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+  });
 </script>
 
 </body>
